@@ -12,13 +12,29 @@ unsigned int stringHash(void *s)
     }
     return result;
 }
+int stringEquals(void *s1, void *s2)
+{
+    char *string1 = (char *)s1;
+    char *string2 = (char *)s2;
+    // -- TODO --
+    if (strcmp(string1, string2) == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
 int main(int argc, char **argv)
 {
     char *a = (char *)malloc(3 * sizeof(char));
     a[0] = 'a';
-    a[1] = 'b';
+    a[1] = '\0';
     a[2] = 'c';
-    stringHash(a);
+    a[3] = 'a';
+    // stringHash(a);
+    stringEquals(a, a + 3);
     free(a);
 }
 int main2(int argc, char **argv)

@@ -91,6 +91,14 @@ int stringEquals(void *s1, void *s2)
   char *string1 = (char *)s1;
   char *string2 = (char *)s2;
   // -- TODO --
+  if (strcmp(string1, string2) == 0)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
 }
 
 /*
@@ -122,7 +130,7 @@ void readDictionary(char *dictName)
   char *word = (char *)malloc(sizeof(char) * 60);
   char c;
   int i = 0;
-  while ((c = fgetc) != EOF)
+  while ((c = fgetc(fp)) != EOF)
   {
     if (c == '\n')
     {
@@ -139,7 +147,6 @@ void readDictionary(char *dictName)
     i++;
   }
   fclose(fp);
-  return 0;
 }
 
 /*
@@ -166,4 +173,34 @@ void readDictionary(char *dictName)
 void processInput()
 {
   // -- TODO --
+  char *str1 = (char *)malloc(sizeof(char) * 60);
+  char *str2 = (char *)malloc(sizeof(char) * 60);
+  char *str3 = (char *)malloc(sizeof(char) * 60);
+  char c;
+  int i = 0;
+  while ((c = fgetc(stdin)) != EOF)
+  {
+    if (isalpha(c) != 0)
+    {
+      str1[i] = c;
+      str2[i] = tolower(c);
+      str3[i] = i == 0 ? (tolower(c)) : c;
+      i += 1;
+    }
+    else
+    {
+      if (findData(dictionary, str1) == NULL && findData(dictionary, str2) == NULL && findData(dictionary, str3) == NULL)
+      {
+        fprintf(stdout, "%s [sic]%c", str1, c);
+      }
+      else
+      {
+        fprintf(stdout, "%s%c", str1, c);
+      }
+      i = 0;
+    }
+  }
+  free(str1);
+  free(str2);
+  free(str3);
 }
