@@ -6,7 +6,8 @@
     "configurations": [{
         "name": "lab01",
         "type": "lldb",
-        "args": ["<", "sampleInput", "sampleDictionary"],
+        "args": ["sampleDictionary"],
+        "stdio": ["sampleInput"],
         "request": "launch",
         "cwd": "${workspaceRoot}/prj/prj1",
         "program": "${workspaceRoot}/prj/prj1/a.out",

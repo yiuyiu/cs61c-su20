@@ -40,11 +40,11 @@ HashTable *dictionary;
  */
 int main(int argc, char **argv)
 {
-  // if (argc != 2)
-  // {
-  //   fprintf(stderr, "Specify a dictionary\n");
-  //   return 0;
-  // }
+  if (argc != 2)
+  {
+    fprintf(stderr, "Specify a dictionary\n");
+    return 0;
+  }
   /*
    * Allocate a hash table to store the dictionary.
    */
@@ -52,11 +52,7 @@ int main(int argc, char **argv)
   dictionary = createHashTable(2255, &stringHash, &stringEquals);
 
   fprintf(stderr, "Loading dictionary %s\n", argv[1]);
-  if(argc > 2){
-    readDictionary(argv[3]);
-  }else{
-    readDictionary(argv[1]);
-  }
+  readDictionary(argv[1]);
   fprintf(stderr, "Dictionary loaded\n");
 
   fprintf(stderr, "Processing stdin\n");
@@ -213,7 +209,13 @@ void processInput()
       i = 0;
     }
   }
-  printf("end char is %c", c);
+  str1[i] = '\0';
+  if (findData(dictionary, str1) == NULL && findData(dictionary, str2) == NULL && findData(dictionary, str3) == NULL){
+    fprintf(stdout, "%s [sic]", str1);
+  }
+  else{
+    fprintf(stdout, "%s", str1);
+  }
   free(str1);
   free(str2);
   free(str3);
