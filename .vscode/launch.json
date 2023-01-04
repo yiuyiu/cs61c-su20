@@ -6,11 +6,9 @@
     "configurations": [{
         "name": "lab01",
         "type": "lldb",
-        "args": ["sampleDictionary"],
-        "stdio": ["sampleInput"],
         "request": "launch",
-        "cwd": "${workspaceRoot}/prj/prj1",
-        "program": "${workspaceRoot}/prj/prj1/a.out",
+        "cwd": "${workspaceRoot}/lab/lab02",
+        "program": "${workspaceRoot}/lab/lab02/a.out",
         "preLaunchTask": "C/C++: gcc build",
     }],
 }

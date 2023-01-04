@@ -8,8 +8,8 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 // "${file}",
-                "${fileDirname}/hashtable.c",
-                "${fileDirname}/philspel.c",
+                "${fileDirname}/test_lfsr.c",
+                "${fileDirname}/lfsr.c",
                 "-o",
                 "${fileDirname}/a.out"
             ],
