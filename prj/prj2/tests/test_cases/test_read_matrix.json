@@ -1,8 +1,26 @@
-{
+[
+  {
     "name": "Basic Read Matrix Test",
     "id": "read_matrix",
-    "test_file": "test_read_matrix.s",
+    "test_file": "test_read_matrix/test_read_matrix.s",
     "args": ["-it", "-ms", "-1"],
     "stdout": "1 2 3 \n4 5 6 \n7 8 9 \n",
     "exitcode": 0
-}
+  },
+  {
+    "name": "Basic Read sample0 Matrix Test",
+    "id": "read_matrix_0",
+    "test_file": "test_read_matrix/test_read_matrix0.s",
+    "args": ["-it", "-ms", "-1"],
+    "stdout": "1 2 3 \n4 5 6 \n7 8 9 \n",
+    "exitcode": 0
+  },
+  {
+    "name": "Basic Read sample0 input0",
+    "id": "read_matrix_sample0_input0",
+    "test_file": "test_read_matrix/test_read_matrix_simple_input0.s",
+    "args": ["-it", "-ms", "-1"],
+    "stdout": "1 \n1 \n1 \n",
+    "exitcode": 0
+  }
+]

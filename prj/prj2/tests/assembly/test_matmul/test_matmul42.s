@@ -1,6 +1,6 @@
-.import ../../src/matmul.s
-.import ../../src/utils.s
-.import ../../src/dot.s
+.import ../../../src/matmul.s
+.import ../../../src/utils.s
+.import ../../../src/dot.s
 
 # static values for testing
 .data

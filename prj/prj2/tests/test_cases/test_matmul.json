@@ -1,15 +1,22 @@
 [{
     "name": "Basic Matmul Test",
     "id": "matmul",
-    "test_file": "test_matmul.s",
+    "test_file": "test_matmul/test_matmul.s",
     "args": ["-it", "-ms", "-1"],
     "stdout": "30 36 42 \n66 81 96 \n102 126 150 \n",
     "exitcode": 0
 }, {
     "name": "matmul test 4*2 X 2*2",
     "id": "matmul4",
-    "test_file": "test_matmul42.s",
+    "test_file": "test_matmul/test_matmul42.s",
     "args": ["-it", "-ms", "-1"],
     "stdout": "-19 29 \n45 -27 \n13 1 \n17 14 \n",
+    "exitcode": 0
+},{
+    "name": "matmul test 3*3 X 3*1",
+    "id": "matmul31",
+    "test_file": "test_matmul/test_matmul31.s",
+    "args": ["-it", "-ms", "-1"],
+    "stdout": "6 \n15 \n24 \n",
     "exitcode": 0
 }]

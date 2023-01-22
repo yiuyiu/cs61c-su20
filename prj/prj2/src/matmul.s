@@ -34,15 +34,17 @@ matmul:
 
 
     # Prologue
-    addi sp sp -32
-    sw ra 28(sp) 
-    sw s0 24(sp)
-    sw s1 20(sp)
-    sw s2 16(sp)
-    sw s3 12(sp)
-    sw s4 8(sp)
-    sw s5 4(sp)
-    sw s6 0(sp)
+    addi sp sp -40
+    sw ra 36(sp) 
+    sw s0 32(sp)
+    sw s1 28(sp)
+    sw s2 24(sp)
+    sw s3 20(sp)
+    sw s4 16(sp)
+    sw s5 12(sp)
+    sw s6 8(sp)
+    sw s7 4(sp)    
+    sw s8 0(sp) 
 
     # save argument
     mv s0 a0 # m0 pointer
@@ -50,6 +52,8 @@ matmul:
     mv s2 a2 # m0 column #
     mv s3 a3 # m1 pointer
     mv s4 a4 # m1 row #
+    mv s7 a5 # m1 column #
+    mv s8 a6 # d pointer
 
     # init 
     mv s5 x0 #i
@@ -81,10 +85,10 @@ inner_loop_start:
 
     # set d element
     addi t0 x0 4
-    mul t1 s5 s2  
+    mul t1 s5 s7
     add t2 t1 s6
     mul t3 t0 t2 
-    add t4 a6 t3 
+    add t4 s8 t3 
     sw a0 0(t4)
 
 
@@ -102,15 +106,17 @@ outer_loop_end:
 
 
     # Epilogue
-    lw ra 28(sp) 
-    lw s0 24(sp)
-    lw s1 20(sp)
-    lw s2 16(sp)
-    lw s3 12(sp)
-    lw s4 8(sp)
-    lw s5 4(sp)
-    lw s6 0(sp) 
-    addi sp sp 32
+    lw ra 36(sp) 
+    lw s0 32(sp)
+    lw s1 28(sp)
+    lw s2 24(sp)
+    lw s3 20(sp)
+    lw s4 16(sp)
+    lw s5 12(sp)
+    lw s6 8(sp)
+    lw s7 4(sp)    
+    lw s8 0(sp) 
+    addi sp sp 40
     
     ret
 exit2:
