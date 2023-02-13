@@ -1,7 +1,7 @@
 .globl map
 
 .data
-arrays: .word 5, 6, 7, 8, 9
+arrays: .word 65535, 6, 7, 8, 9
         .word 1, 2, 3, 4, 7
         .word 5, 2, 7, 4, 3
         .word 1, 6, 3, 8, 4
